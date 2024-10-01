@@ -9,8 +9,9 @@ pipeline{
                 script
                 {
 variable_fichero = readFile(file:"\\jenkins.txt")
-numero1=variable_fichero.readline()[0]
-numero2 =variable_fichero.readline()[1]
+            lines = variable_fichero.readLines()
+            numero1 = lines[0].toInteger()
+            numero2 = lines[1].toInteger()
               
 suma = numero1 + numero2
 resta = numero1 - numero2
