@@ -1,0 +1,45 @@
+pipeline
+
+{
+
+    agent any
+
+    stages
+
+    {
+
+        stage("ClimaActual")
+
+        {
+
+            steps
+
+            {
+
+                println 'Ciudad Actual Nublado'
+
+            }
+
+            
+
+        }
+
+
+  stage("PoblacionActual")
+
+        {
+
+            steps
+
+            {
+
+                println 'Poblacion Actual Basauri'
+
+            }
+
+            
+
+        }
+    }
+
+}
