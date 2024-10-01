@@ -1,11 +1,13 @@
 pipeline{    
   agent any  
-    stages{
-stage ('Leer fichero')
-{
-steps
-{
-scripts{
+  stages
+    {
+        stage("LeerFichero")
+        {
+            steps
+            {
+                script
+                {
 variable_fichero = readFile(file: "C:\\cursojenkins\\jenkins.txt")
 numero1=variable_fichero.readline()[0]
 numero2 =variable_fichero.readline()[1]
