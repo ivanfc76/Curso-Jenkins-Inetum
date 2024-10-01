@@ -1,0 +1,26 @@
+PoblacionNeta =0
+def Poblaciontotal=400000
+def fechaActual = new Date().format('dd-MM-yyyy')
+
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('PoblacionNeta'){
+    
+            steps{
+                script{
+                
+                    Poblacionneta = Poblaciontotal  * 0.8   
+                    cadena = "la Población Neta de Basauri es de  ${PoblacionNeta} habitantes" 
+                    writeFile(file: "poblacion_neta_${fechaActual}.txt", text: cadena)
+                    println cadena
+                    println ("El fichero fue escrito.")
+                }
+            }
+        }
+    }
+}
+
+    
