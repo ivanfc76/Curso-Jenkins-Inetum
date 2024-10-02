@@ -1,0 +1,35 @@
+def dia = new Date().getDay()
+pipeline{
+    agent any
+    environment
+    {
+        climaActual= "LLoviendo"
+    }
+
+stages{
+        stage('Exame1'){
+            steps{
+                script{
+                    if(dia == 1){
+                        numero1 = 100
+                        numero2 = 50
+                        suma = numero1 + numero2
+                        esta = numero1 - numero2
+                        multiplicacion = numero1 * numero2
+                        division = numero1 * numero2
+                        potencia =numero1*numero1
+                        println 'suma: ${suma} ,resta: ${resta} multiplicacion: ${multiplicacion} , division: ${division} y potencia ${potencia}' 
+                    }else if(dia == 2){                        
+                        println 'Has relizado la ejecucion a fecha de: ${dia}'  
+                  }else if(dia == 3){
+                        println 'Se ejecuto el pipeline correctamente'
+                    }else if(dia == 4){
+                        println 'El clima actual es: ${climaActual}'
+                    }else if(dia == 5){
+                        println 'Lo estas haciendo de maravilas!'
+                    }
+                }
+            }
+        }
+    }
+}
