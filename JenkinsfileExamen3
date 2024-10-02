@@ -1,0 +1,20 @@
+def fechaActual = new Date().format("dd-MM-yyyy")
+def num =11
+pipeline{
+    agent any
+    stages{
+        stage("Calcular cuadrados"){
+            steps{
+                script{
+                    
+                    for(int valor = 2; valor <= ${num}; ivalor++){
+                        cuadrado = valor*valor
+                        cadena = " ${i} al cuadrado es ${resultado}\n"
+                        resultado += cadena
+                    }
+                    writeFile(file: "salida_${fechaActual}.txt", text: resultado)
+                }
+            }
+        }
+    }
+}
