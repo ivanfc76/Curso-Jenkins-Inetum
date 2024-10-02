@@ -6,7 +6,7 @@ pipeline{
         stage("Calcular cuadrados"){
             steps{
                 script{
-                    
+                    resultado = ""
                     for(int valor = 2; valor <= num; valor++){
                         cuadrado = valor*valor
                         cadena = "${valor} al cuadrado es ${resultado}\n"
