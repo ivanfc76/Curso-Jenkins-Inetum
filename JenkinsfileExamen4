@@ -15,9 +15,13 @@ pipeline
         {
             steps
             {
-                  mensaje = "Bienvenido a Basauri hoy es ${fechaActual}"
-                  cadena += mensaje + "\n"
-                  println mensaje
+                script
+                       {
+   
+                          mensaje = "Bienvenido a Basauri hoy es ${fechaActual}"
+                          cadena += mensaje + "\n"
+                          println mensaje
+                       }     
             }
             
         }
@@ -26,28 +30,41 @@ pipeline
         {
             steps
             {
-                  mensaje = "El clima de Basauri es de ${clima} con un numero de habitantes: ${poblacion}"
-                  cadena += mensaje + "\n"
-                  println mensaje            }
-            
+                
+                script
+                       {
+
+                          mensaje = "El clima de Basauri es de ${clima} con un numero de habitantes: ${poblacion}"
+                          cadena += mensaje + "\n"
+                          println mensaje            }
+                        }                    
         }
 
          stage("Numero Habitantes")
         {
             steps
             {
-                  mensaje = "Basauri tiene una poblacion neta de ${poblacionNeta} habitantes"
-                  cadena += mensaje + "\n"
-                  println mensaje            }
-            
+                  
+                script
+                       {
+
+                           mensaje = "Basauri tiene una poblacion neta de ${poblacionNeta} habitantes"
+                          cadena += mensaje + "\n"
+                          println mensaje            }
+                        }
         }
 
   stage("fichero")
         {
             steps
             {
-                    writeFile(file: "Fichero_Salida.txt", text: cadena)
-            }
+                
+                script
+                       {
+                            writeFile(file: "Fichero_Salida.txt", text: cadena)
+            
+                    }
+                }
             
         }
 
