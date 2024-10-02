@@ -9,7 +9,7 @@ pipeline{
                     resultado = ""
                     for(int valor = 2; valor <= num; valor++){
                         cuadrado = valor*valor
-                        cadena = "${valor} al cuadrado es ${resultado}\n"
+                        cadena = "${valor} al cuadrado es ${cuadrado}\n"
                         resultado += cadena
                     }
                     writeFile(file: "salida_${fechaActual}.txt", text: resultado)
