@@ -7,9 +7,9 @@ pipeline{
             steps{
                 script{
                     
-                    for(int valor = 2; valor <= ${num}; ivalor++){
+                    for(int valor = 2; valor <= num; valor++){
                         cuadrado = valor*valor
-                        cadena = " ${i} al cuadrado es ${resultado}\n"
+                        cadena = "${valor} al cuadrado es ${resultado}\n"
                         resultado += cadena
                     }
                     writeFile(file: "salida_${fechaActual}.txt", text: resultado)
