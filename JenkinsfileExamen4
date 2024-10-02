@@ -1,0 +1,57 @@
+
+def fechaActual = new Date().format("dd-MM-yyyy")
+def poblacion = 30000
+def poblacionNeta = poblacion*0.8
+def cadena = ""
+def clima = "lluvia"
+
+
+pipeline
+{
+    agent any
+    stages
+    {
+        stage("Saludo")
+        {
+            steps
+            {
+                  mensaje = "Bienvenido a Basauri hoy es ${fechaActual}"
+                  cadena += mensaje + "\n"
+                  println mensaje
+            }
+            
+        }
+    
+            stage("Informacion Ciudad")
+        {
+            steps
+            {
+                  mensaje = "El clima de Basauri es de ${clima} con un numero de habitantes: ${poblacion}"
+                  cadena += mensaje + "\n"
+                  println mensaje            }
+            
+        }
+
+         stage("Numero Habitantes")
+        {
+            steps
+            {
+                  mensaje = "Basauri tiene una poblacion neta de ${poblacionNeta} habitantes"
+                  cadena += mensaje + "\n"
+                  println mensaje            }
+            
+        }
+
+  stage("fichero")
+        {
+            steps
+            {
+                    writeFile(file: "Fichero_Salida.txt", text: cadena)
+            }
+            
+        }
+
+}
+}
+
+
