@@ -8,7 +8,7 @@ pipeline{
             {
                 script
                 {
-            variable_fichero = readFile(file:"\\jenkins.txt")
+            variable_fichero = readFile(file:"C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Examen2")
             lines = variable_fichero.readLines()
             numero1 = lines[0].toInteger()
             numero2 = lines[1].toInteger()
