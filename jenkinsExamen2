@@ -1,0 +1,43 @@
+pipeline{    
+  agent any  
+  stages
+    {
+        stage("Examen2")
+        {
+            steps
+            {
+                script
+                {
+            variable_fichero = readFile(file:"\\jenkins.txt")
+            lines = variable_fichero.readLines()
+            numero1 = lines[0].toInteger()
+            numero2 = lines[1].toInteger()
+              
+        suma = numero1 + numero2
+        resta = numero1 - numero2
+        multiplicacion = numero1 * numero2
+        divison=0
+        if(numero1 == 0 || numero2 == 0)
+          {
+          
+          echo "No hago nada"
+           }
+        else
+      {
+          division = numero1 / numero2
+      }
+
+
+  cadena = "Suma = ${suma}  , Resta =${resta} , multiplicacion = ${multiplicacion} , division= ${division}" 
+  println cadena
+  writeFile(file: "jenkins_salida.txt", text: cadena)
+
+
+                }
+            }
+        }
+        
+    }
+}
+
+
